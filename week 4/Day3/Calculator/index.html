@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="script.js"></script>
+  <style>
+    button {
+      width: 70px;
+      height: 70px;
+    }
+    button.number {
+    background-color: green;
+    color: white;
+  }
+  
+  button.operator {
+    background-color: orange;
+    color: white;
+  }
+  
+  button.reset, button.clear {
+    background-color: red;
+    color: white;
+  }
+  </style>
+</head>
+<body>
+  <input type="text" id="result" readonly>
+  <br>
+  <button type="button" onclick="number(1)">1</button>
+  <button type="button" onclick="number(2)">2</button>
+  <button type="button" onclick="number(3)">3</button>
+  <br>
+  <button type="button" onclick="number(4)">4</button>
+  <button type="button" onclick="number(5)">5</button>
+  <button type="button" onclick="number(6)">6</button>
+  <br>
+  <button type="button" onclick="number(7)">7</button>
+  <button type="button" onclick="number(8)">8</button>
+  <button type="button" onclick="number(9)">9</button>
+  <button type="button" onclick="number(0)">0</button>
+  <br>
+  <button type="button" onclick="operator('+')">+</button>
+  <button type="button" onclick="operator('-')">-</button>
+  <button type="button" onclick="operator('*')">*</button>
+  <button type="button" onclick="operator('/')">/</button>
+  <br>
+  <button type="button" onclick="equal()">=</button>
+  <button type="button" onclick="reset()">RESET</button>
+  <button type="button" onclick="clear()">CLEAR</button>
+  <script src="js/main.js" charset="utf-8"></script>
+</body>
+</html>

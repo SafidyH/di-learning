@@ -1,0 +1,19 @@
+button {
+    width: 70px;
+    height: 70px;
+  }
+  
+  button.number {
+    background-color: green;
+    color: white;
+  }
+  
+  button.operator {
+    background-color: orange;
+    color: white;
+  }
+  
+  button.reset, button.clear {
+    background-color: red;
+    color: white;
+  }

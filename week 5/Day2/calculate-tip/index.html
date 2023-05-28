@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tip Calculator</title>
+  <style>
+    #each {
+      display: none;
+    }
+
+    #totalTip {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tip Calculator</h1>
+  <form>
+    <label for="billAmt">Bill amount:</label>
+    <input type="number" id="billAmt" name="billAmt" step="0.01"><br>
+
+    <label for="serviceQual">Service quality:</label>
+    <select id="serviceQual" name="serviceQual">
+      <option value="0">Select an option</option>
+      <option value="0.3">Excellent - 30%</option>
+      <option value="0.2">Good - 20%</option>
+      <option value="0.15">Average - 15%</option>
+      <option value="0.1">Poor - 10%</option>
+      <option value="0.05">Terrible - 5%</option>
+    </select><br>
+
+    <label for="numOfPeople">Number of people:</label>
+    <input type="number" id="numOfPeople" name="numOfPeople" min="1"><br>
+    
+    <input type="button" value="Calculate" id="calculate">
+  </form>
+
+  <p id="each">Each person should pay: <span id="tip"></span></p>
+  <p id="totalTip">Total tip: $<span id="tip"></span></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
