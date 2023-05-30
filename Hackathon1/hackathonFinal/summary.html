@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Ecological Footprint Calculator</title>
+	<link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<style>
+		body {
+			text-align: center;
+			display: block;
+			font-family: "Futura PT";
+			color: white;
+			background-image: url("assets/images/space.jpg");
+			background-repeat: no-repeat, repeat;
+			background-size: cover;
+			background-position: center;
+			background-color: #cccccc;
+			height: 100vh;
+    }
+		
+		@media (max-width: 768px) {
+      body {
+        background-image: none;
+      }
+
+      .container {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .main {
+        margin: 0 auto;
+        width: 750px;
+      }
+
+      .navbar {
+        width: 100%;
+      }
+
+      .navbar-nav {
+        float: none;
+      }
+
+      .navbar-nav > li {
+        display: inline-block;
+      }
+
+      .form-range {
+        width: 100%;
+      }
+
+      .container {
+        background-image: url("assets/images/space.jpg");
+        background-size: 100vw 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+	</style>
+</head>
+
+<body>
+	<section class="main">
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img src="assets/images/logo.png" alt="" width="25" height="25">
+					Ecological
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="home.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="profile.html">Profile</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="carbon-calculator.html">Carbon Calculator</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="index1.html">About Me</a>
+						  </li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container"><br>
+			<h4>RESULTS</h4>
+			<div>Food:<br><span id="food-range"></span></div><br>
+			<div>Housing:<br><span id="housing-option"></span></div><br>
+			<div>Transportation:<br>Car: <span id="trans-car"></span><br>Motorcycle: <span id="trans-motor"></span>
+			</div><br>
+			<div>Transportation Fuel:<br>Car: <span id="trans-fuel-car"></span><br>Motorcycle: <span
+					id="trans-fuel-motor"></span></div><br>
+			<div id="ecological-footprint"></div><br>
+			<a href="home.html"><button class="btn btn-dark">Retake Quiz</button></a>
+		</div>
+	</section>
+
+	<script>
+		const foodRange = localStorage.getItem('food-range');
+		const housingOption = localStorage.getItem('housing-option');
+		const carRange = localStorage.getItem('car-range');
+		const motorcycleRange = localStorage.getItem('motorcycle-range');
+		const carFuelRange = localStorage.getItem('car-fuel-range');
+		const motorcycleFuelRange = localStorage.getItem('motorcycle-fuel-range');
+
+		document.getElementById('food-range').textContent = foodRange;
+		document.getElementById('housing-option').textContent = housingOption;
+		document.getElementById('trans-motor').textContent = carRange;
+		document.getElementById('trans-car').textContent = motorcycleRange;
+		document.getElementById('trans-fuel-motor').textContent = carFuelRange;
+		document.getElementById('trans-fuel-car').textContent = motorcycleFuelRange;
+
+		function calculateEcologicalFootprint() {
+
+			const foodRange = localStorage.getItem('food-range');
+
+			const housingOption = localStorage.getItem('housing-option');
+			console.log(housingOption)
+			const carRange = localStorage.getItem('car-range');
+			const motorcycleRange = localStorage.getItem('motorcycle-range');
+			const carFuelRange = localStorage.getItem('car-fuel-range');
+			const motorcycleFuelRange = localStorage.getItem('motorcycle-fuel-range');
+
+			const foodFootprint = foodRange * 10;
+
+			const housingFootprint = getHousingFootprint(housingOption);
+
+			const carFootprint = carRange * carFuelRange;
+
+			const motorcycleFootprint = motorcycleRange * motorcycleFuelRange;
+
+			const totalFootprint = foodFootprint + housingFootprint + carFootprint + motorcycleFootprint;
+
+
+			document.getElementById("ecological-footprint").innerHTML =
+				`Ecological Footprint: ${totalFootprint} : Average: ${Number(totalFootprint/6).toFixed(2)}`;
+		}
+
+		function getHousingFootprint(housingOption) {
+			switch (housingOption) {
+				case "Freestanding, no running water":
+					return 10;
+				case "Freestanding, running water":
+					return 20;
+				case "Multi-storey apartment":
+					return 30;
+				case "Duplex, row house or building with 2-4 housing units":
+					return 40;
+				case "Luxury condominium":
+					return 50;
+				default:
+					return 0;
+			}
+		}
+
+		calculateEcologicalFootprint()
+	</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+	</script>
+</body>
+
+</html>
