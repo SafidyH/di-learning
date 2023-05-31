@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ecological Footprint Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+  
+  <style>
+     body {
+      font-family: "Futura PT";
+      color: #2c3e50;
+      background-image: url("assets/images/profile.jpg");
+      background-repeat: no-repeat, repeat;
+      background-size: cover; /* Resize the background image to cover the entire container */
+      background-position: center;
+      background-color: #cccccc;
+      height: 100vh;
+    }
+    
+    .profile-container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+    }
+    
+    .profile-info label {
+      font-weight: bold;
+    }
+    
+    .profile-comments {
+      margin-top: 20px;
+    }
+    
+    .profile-comments textarea,
+    .profile-comments input[type="text"] {
+      width: 100%;
+      padding: 5px;
+    }
+    
+    .profile-comments button {
+      margin-top: 10px;
+    }
+    
+    .profile-container {
+      background-image: url("assets/images/profile.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 130%;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+    }
+    
+    
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    footer .social-icons img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .social-icons {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .social-icons li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    
+    .social-icons li:last-child {
+      margin-right: 0;
+    }
+    
+    .social-icons a {
+      color: #555555;
+      text-decoration: none;
+    }
+
+   @media (max-width: 768px) {
+  body {
+    background-image: none;
+  }
+
+  .container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .main {
+    margin: 0 auto;
+    width: 750px;
+  }
+
+  .navbar {
+    width: 100%;
+  }
+
+  .navbar-nav {
+    float: none;
+  }
+
+  .navbar-nav > li {
+    display: inline-block;
+  }
+
+  .form-range {
+    width: 100%;
+  }
+
+
+}
+
+  </style>
+</head>
+<body>
+  <section class="main"></section>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="assets/images/logo.png" alt="" width="25" height="25">
+        Ecological
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="carbon-calculator.html">Carbon Calculator</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="profile-container">
+    <h1>Profile</h1>
+    
+    <div class="mb-3">
+      <label class="form-label"><b>First Name</b></label>
+      <input type="text" class="form-control" id="profile-firstname" value="" disabled>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label"><b>Last Name</b></label>
+      <input type="text" class="form-control" id="profile-lastname" value="" disabled>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label"><b>Address</b></label>
+      <input type="text" class="form-control" id="profile-address" value="" disabled>
+    </div>
+    <div class="mb-3">
+      <label class="form-label"><b>Types of vehicles</b></label>
+      <ul id="profile-vehicles"></ul>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label"><b>Types of machines</b></label>
+      <ul id="profile-machines"></ul>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label"><b>Comments</b></label>
+      <textarea class="form-control" id="profile-comments" rows="4" readonly></textarea>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label"><b>Free fields</b></label>
+      <input type="text" class="form-control" id="profile-custom-field" value="" disabled>
+    </div>
+    
+    <div class="profile-comments">
+      <button class="btn btn-dark" onclick="logout()">Logout</button>
+    </div>
+
+    <footer>
+      <ul class="social-icons">
+        <li><a href="https://www.facebook.com"><img src="facebook-icon.png" alt="Facebook"></a></li>
+        <li><a href="https://www.twitter.com"><img src="twitter-icon.png" alt="Twitter"></a></li>
+        <li><a href="https://www.instagram.com"><img src="instagram-icon.png" alt="Instagram"></a></li>
+      </ul>
+      <div class="copyright">
+        &copy; 2023 Ecological Footprint Calculator
+      </div>
+    </footer>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+	</script>
+  <script>
+   
+    var isLoggedIn = true; 
+    if (isLoggedIn) {
+      var user = {
+        lastname: "Doe",
+        firstname: "John",
+        address: "123 Main St",
+        vehicles: ["Car", "Motorcycle"],
+        machines: ["Circular saw", "Drill"],
+        comments: "This is a great user!",
+        customField: "Custom value"
+      };
+    
+      // Display profile information
+      document.getElementById('profile-lastname').value = user.lastname;
+      document.getElementById('profile-firstname').value = user.firstname;
+      document.getElementById('profile-address').value = user.address;
+    
+      var vehiclesList = document.getElementById('profile-vehicles');
+      for (var i = 0; i < user.vehicles.length; i++) {
+        var vehicleItem = document.createElement('li');
+        vehicleItem.textContent = user.vehicles[i];
+        vehiclesList.appendChild(vehicleItem);
+      }
+    
+      var machinesList = document.getElementById('profile-machines');
+      for (var j = 0; j < user.machines.length; j++) {
+        var machineItem = document.createElement('li');
+        machineItem.textContent = user.machines[j];
+        machinesList.appendChild(machineItem);
+      }
+    
+      document.getElementById('profile-comments').textContent = user.comments;
+      document.getElementById('profile-custom-field').value = user.customField;
+    } else {
+      // Redirect to login page if user is not logged in
+      window.location.href = "index.html";
+    }
+    
+    function logout() {
+      // Perform necessary logout steps, then redirect to login page
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
+
