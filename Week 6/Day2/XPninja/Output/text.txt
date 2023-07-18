@@ -1,0 +1,36 @@
+3 <= 3 < 9
+Output: True
+Explanation: This expression evaluates the chained comparison. It checks if 3 is less than or equal to 3 and if 3 is less than 9. Both comparisons are true, so the overall result is True.
+
+3 == 3 == 3
+Output: True
+Explanation: This expression compares whether 3 is equal to 3 and if 3 is equal to 3. Both comparisons are true, so the overall result is True.
+
+bool(0)
+Output: False
+Explanation: The bool() function converts the given value to a boolean. In this case, 0 is considered as False.
+
+bool(5 == "5")
+Output: False
+Explanation: The expression 5 == "5" compares whether the value 5 is equal to the string "5". Since they have different types, the comparison evaluates to False. The bool() function converts False to False.
+
+bool(4 == 4) == bool("4" == "4")
+Output: True
+Explanation: This expression compares the boolean values returned by two separate comparisons: 4 == 4 and "4" == "4". Both comparisons are true, so both bool() functions return True. Finally, the equality comparison between the two True values results in True.
+
+bool(bool(None))
+Output: False
+Explanation: The expression bool(None) converts None to False, and then the outer bool() function converts False to False.
+
+x = (1 == True)
+y = (1 == False)
+a = True + 4
+b = False + 10
+Output:
+
+vbnet
+Copy code
+x is True
+y is False
+a: 5
+b: 10

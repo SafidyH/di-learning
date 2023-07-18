@@ -1,0 +1,22 @@
+5 < 3
+The expression 5 < 3 compares whether 5 is less than 3. Since this is not true, the output will be False.
+
+3 == 3
+The expression 3 == 3 compares whether 3 is equal to 3. This is true, so the output will be True.
+
+3 == "3"
+The expression 3 == "3" compares whether the number 3 is equal to the string "3". Since they are not of the same type, the output will be False.
+
+"3" > 3
+The expression "3" > 3 compares whether the string "3" is greater than the number 3. In Python, string comparison is based on lexicographical order. Since "3" comes after 3 in lexicographical order, the output will be True.
+
+"Hello" == "hello"
+The expression "Hello" == "hello" compares whether the string "Hello" is equal to the string "hello". Since the two strings have different casing (upper case vs. lower case), the output will be False.
+
+So, the predicted output for each code snippet is as follows:
+
+False
+True
+False
+True
+False

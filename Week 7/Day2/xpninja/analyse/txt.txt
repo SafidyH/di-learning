@@ -1,0 +1,7 @@
+The purpose of this code is to implement the Insertion Sort algorithm to sort a list (alist) in ascending order. The code defines a function called insertion_sort that takes a list as input. It then iterates over the elements of the list, starting from the second element (index = 1).
+
+Within each iteration, the current value is stored in the variable currentvalue, and the variable position is set to the current index. The code then enters a while loop that continues as long as position is greater than 0 and the element at alist[position-1] is greater than currentvalue. This while loop shifts the elements to the right until the correct position for currentvalue is found.
+
+Once the correct position is determined, the value of currentvalue is placed at that position in the list. This process continues until all elements in the list have been sorted.
+
+After defining the insertion_sort function, the code creates a list alist with some unsorted integers. It then calls the insertion_sort function, passing alist as the argument, which sorts the list in place. Finally, the sorted list is printed using print(alist).
