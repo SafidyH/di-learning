@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sell Card</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    {% if card.current_owner is None %}
+        <p>Card sold successfully!</p>
+    {% else %}
+        <p>Card sell failed. You are not the owner of this card.</p>
+    {% endif %}
+</body>
+</html>

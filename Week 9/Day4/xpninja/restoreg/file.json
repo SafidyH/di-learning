@@ -1,0 +1,13 @@
+{
+    "items": [
+        {
+            "name": "Vegetable Soup",
+            "price": "12.50"
+        },
+        {
+            "name": "Hamburger",
+            "price": "8.99"
+        }
+    ],
+    "valentine_items": []
+}

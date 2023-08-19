@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="user-profile">
+        <h2>{{ user.username }}'s Profile</h2>
+        <p>Email: {{ user.email }}</p>
+        <p>Amount of Money: ${{ user.amount_of_money }}</p>
+        <p>Points: {{ user.points }}</p>
+        <h3>Owned Cards:</h3>
+        <ul>
+            {% for card in user.owned_cards.all %}
+                <li>{{ card.name_character }} (House: {{ card.house }})</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

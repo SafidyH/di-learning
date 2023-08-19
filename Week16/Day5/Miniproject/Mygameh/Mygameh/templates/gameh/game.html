@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Countdown Word Game</h1>
+<p>Unscramble the letters and guess the word!</p>
+
+<h2>Shuffled Word:</h2>
+<p>{{ shuffled_word }}</p>
+
+<h2>Your Guess:</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Submit Guess</button>
+</form>
+{% endblock %}

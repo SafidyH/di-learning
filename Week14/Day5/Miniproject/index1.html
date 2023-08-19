@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Cards</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>All Cards Available in the Market</h1>
+    {% for card in cards %}
+        <div class="card">
+            <img src="{{ card.image_url }}" alt="{{ card.name_character }}">
+            <h2>{{ card.name_character }}</h2>
+            <p>House: {{ card.house }}</p>
+            <p>Price: ${{ card.price }}</p>
+            <p>XP Points: {{ card.xp_points }}</p>
+            <a href="{% url 'buy_one_card' card.id user.id %}">Buy</a>
+        </div>
+    {% endfor %}
+</body>
+</html>

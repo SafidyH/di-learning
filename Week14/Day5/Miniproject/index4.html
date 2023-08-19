@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buy Card</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    {% if card.current_owner == user %}
+        <p>Card purchased successfully!</p>
+        <p>Current Owner: {{ card.current_owner.username }}</p>
+    {% else %}
+        <p>Card purchase failed. Not enough money.</p>
+    {% endif %}
+</body>
+</html>
