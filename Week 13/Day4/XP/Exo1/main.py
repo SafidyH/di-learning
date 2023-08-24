@@ -1,0 +1,1 @@
+#c. It prevents the model from being too sensitive to random errors or outliers in the dataset

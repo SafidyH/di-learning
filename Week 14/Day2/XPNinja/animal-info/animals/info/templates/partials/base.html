@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <!-- Add Bootstrap CDN link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    {% include 'partials/navbar.html' %}
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+     <!-- Add Bootstrap JS and jQuery scripts here if needed -->
+</body>
+</html>

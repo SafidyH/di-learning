@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>All Animals</h1>
+  <ul>
+    {% for animal in animals %}
+      <li>
+        <h2>{{ animal.name }}</h2>
+        <img src="{{ animal.image }}" alt="{{ animal.name }} Image">
+        <p>Legs: {{ animal.legs }}</p>
+        <p>Weight: {{ animal.weight }}</p>
+        <p>Height: {{ animal.height }}</p>
+        <p>Speed: {{ animal.speed }}</p>
+        <p>Family: {{ animal.family }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
