@@ -1,5 +1,5 @@
 from django.db import models
-from info.models import Family, Animal
+#from info.models import Family, Animal
 
 class Family(models.Model):
     name = models.CharField(max_length=100)
@@ -15,6 +15,6 @@ class Animal(models.Model):
     family = models.ForeignKey(Family, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Animal (ID: {self.id})"
-
+        #return f"Animal (ID: {self.id})"
+        return f"{self.family} - Animal {self.id}"
 

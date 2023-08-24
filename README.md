@@ -1,5 +1,13 @@
 # di-learning
 
+git status
+git add . (ou git add nom-du-fichier pour des fichiers spécifiques)
+git commit -m "Message de commit"
+git push origin nom-de-la-branche (généralement main ou master pour la branche principale)
+
+
+
+
 df.describe()
 
 
