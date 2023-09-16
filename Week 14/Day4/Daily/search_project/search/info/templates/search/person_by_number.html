@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Person Details</title>
+</head>
+<body>
+    <h1>Person Details</h1>
+    {% if person %}
+        <p>Name: {{ person.name }}</p>
+        <p>Email: {{ person.email }}</p>
+        <p>Phone Number: {{ person.phone_number }}</p>
+        <p>Address: {{ person.address }}</p>
+    {% else %}
+        <p>No person found with the provided phone number.</p>
+    {% endif %}
+</body>
+</html>

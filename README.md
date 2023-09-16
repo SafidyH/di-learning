@@ -6,6 +6,11 @@ git commit -m "Message de commit"
 git push origin nom-de-la-branche (généralement main ou master pour la branche principale)
 
 
+The basics:
+
+Each model is a Python class that subclasses django.db.models.Model
+Each attribute of the model represents a database field
+
 
 
 df.describe()

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ card.name_character }}</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+        <h1>{{ card.name_character }}</h1>
+        <img src="{{ card.image_url }}" alt="{{ card.name_character }}">
+        <p>Species: {{ card.species }}</p>
+        <p>House: {{ card.house }}</p>
+        <p>XP Points: {{ card.xp_points }}</p>
+        <p>Price: ${{ card.price }}</p>
+        {% if card.current_owner %}
+            <p>Current Owner: {{ card.current_owner.username }}</p>
+        {% else %}
+            <p>Available in Market</p>
+        {% endif %}
+        <a href="{% url 'user_profile' card.current_owner.id %}">Owner's Profile</a>
+    {% endblock %}
+</body>
+</html>

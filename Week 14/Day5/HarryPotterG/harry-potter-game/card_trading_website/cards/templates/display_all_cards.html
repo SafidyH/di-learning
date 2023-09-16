@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Cards</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+        <h1>Available Cards</h1>
+        <ul>
+        {% for card in available_cards %}
+            <li>
+                <img src="{{ card.image_url }}" alt="{{ card.name_character }}">
+                <h2>{{ card.name_character }}</h2>
+                <p>XP Points: {{ card.xp_points }}</p>
+                <p>Price: ${{ card.price }}</p>
+                <a href="{% url 'buy_one_card' card.id user.id %}">Buy</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endblock %}
+</body>
+</html>
